@@ -1,9 +1,10 @@
 ---
 import { marked } from 'marked';
 import '../styles/global.css';
+import githubCornerSvg from '../assets/github-corner.svg?raw';
 
 const MANIFESTO_URL =
-  'https://raw.githubusercontent.com/reversegitops/manifesto/main/README.md';
+  'https://raw.githubusercontent.com/reverse-gitops/manifesto/main/README.md';
 
 const res = await fetch(MANIFESTO_URL);
 if (!res.ok) {
@@ -28,6 +29,10 @@ content = content.replace(
 // Style the opening hook paragraph
 content = content.replace(/<p>(GitOps gave us)/, '<p class="lead">$1');
 
+const apiRes = await fetch('https://api.github.com/repos/reverse-gitops/manifesto');
+const repoData = apiRes.ok ? await apiRes.json() : {};
+const stars: number = repoData.stargazers_count ?? 0;
+
 const buildDate = new Date().toISOString().slice(0, 10);
 ---
 
@@ -49,6 +54,8 @@ const buildDate = new Date().toISOString().slice(0, 10);
     />
   </head>
   <body>
+    <a href="https://github.com/reverse-gitops/manifesto" class="github-corner" aria-label="Star us on GitHub" target="_blank" rel="noopener noreferrer" set:html={githubCornerSvg} />
+
     <div class="hero">
       <div class="hero-glow"></div>
       <div class="hero-inner">
@@ -56,7 +63,14 @@ const buildDate = new Date().toISOString().slice(0, 10);
           <span class="w-reverse">Reverse</span><span class="w-gitops">GitOps</span>
         </div>
         <p class="hero-tagline">API-first. Git-recorded. GitOps-compatible.</p>
-        <a href="#manifesto" class="hero-cta">Read the manifesto ↓</a>
+        <div class="hero-actions">
+          <a href="#manifesto" class="hero-cta">Read the manifesto ↓</a>
+          <a href="https://github.com/reverse-gitops/manifesto" class="star-badge" target="_blank" rel="noopener noreferrer">
+            <svg class="star-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Z"/></svg>
+            Star on GitHub
+            <span class="star-count">{stars}</span>
+          </a>
+        </div>
       </div>
     </div>
 
@@ -67,9 +81,9 @@ const buildDate = new Date().toISOString().slice(0, 10);
     <footer>
       <p>
         Content from <a
-          href="https://github.com/reversegitops/manifesto"
+          href="https://github.com/reverse-gitops/manifesto"
           target="_blank"
-          rel="noopener noreferrer">reversegitops/manifesto</a
+          rel="noopener noreferrer">reverse-gitops/manifesto</a
         > &mdash; built {buildDate}
       </p>
     </footer>
