@@ -3,6 +3,8 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
+    "render:og": "node scripts/render-og-image.mjs",
+    "prebuild": "npm run render:og",
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview"
@@ -12,5 +14,8 @@
     "lucide-astro": "^0.556.0",
     "marked": "^15.0.0",
     "posthog-js": "^1.368.2"
+  },
+  "devDependencies": {
+    "@resvg/resvg-js": "^2.6.2"
   }
 }

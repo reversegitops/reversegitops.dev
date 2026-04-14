@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="190" y1="70" x2="1000" y2="560" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#111827" />
+      <stop offset="0.55" stop-color="#0d1117" />
+      <stop offset="1" stop-color="#050816" />
+    </linearGradient>
+    <linearGradient id="combine-grad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#60a5fa" />
+      <stop offset="50%" stop-color="#4493f8" />
+      <stop offset="100%" stop-color="#a78bfa" />
+    </linearGradient>
+    <radialGradient id="glow-a" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(360 120) rotate(35) scale(520 320)">
+      <stop offset="0" stop-color="#4493f8" stop-opacity="0.26" />
+      <stop offset="1" stop-color="#4493f8" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="glow-b" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(920 520) rotate(180) scale(620 300)">
+      <stop offset="0" stop-color="#4493f8" stop-opacity="0.12" />
+      <stop offset="1" stop-color="#4493f8" stop-opacity="0" />
+    </radialGradient>
+    <filter id="shadow" x="0" y="0" width="1200" height="630" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="28" stdDeviation="36" flood-color="#020617" flood-opacity="0.55" />
+    </filter>
+  </defs>
+  <rect width="1200" height="630" fill="#0d1117" />
+  <rect width="1200" height="630" rx="36" fill="url(#bg)" />
+  <rect width="1200" height="630" rx="36" fill="url(#glow-a)" />
+  <rect width="1200" height="630" rx="36" fill="url(#glow-b)" />
+  <g opacity="0.12">
+    <path d="M0 94h1200" stroke="#94a3b8" />
+    <path d="M0 536h1200" stroke="#94a3b8" />
+    <path d="M190 0v630" stroke="#94a3b8" />
+    <path d="M1010 0v630" stroke="#94a3b8" />
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="320" y="72" width="560" height="440" rx="40" fill="#0b1220" fill-opacity="0.88" stroke="#1f2937" />
+    <g transform="translate(387 80) scale(18)">
+      <g stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M17 9 14 6" stroke="#7d8590" />
+        <path d="M17 3 14 6h5a2 2 0 0 1 2 2v2" stroke="#7d8590" />
+        <path d="m7 15 3 3" stroke="url(#combine-grad)" />
+        <path d="m7 21 3-3H5a2 2 0 0 1-2-2v-2" stroke="url(#combine-grad)" />
+        <rect x="14" y="14" width="7" height="7" rx="1" stroke="url(#combine-grad)" />
+        <rect x="3" y="3" width="7" height="7" rx="1" stroke="#7d8590" />
+      </g>
+    </g>
+  </g>
+  <text x="600" y="558" text-anchor="middle" fill="#94a3b8" font-family="'DejaVu Sans Mono', monospace" font-size="30" letter-spacing="2">API-first. Git-recorded.</text>
+</svg>
